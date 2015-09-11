@@ -25,38 +25,38 @@ The script that contains the skeleton of your database and the necessary trigger
 ### req_reg.php
 Claims for the salt of a new record.
 
-| I/O | Meaning ||
-| ------|---------||
-| **input** |   |
-|           |   |
-| **output**|   ||
-| JSON      |   ||
+| I/O | Meaning | |
+|------|---------|-----|
+| **input** |   | |
+|           |   | |
+| **output**|   | |
+| JSON      |   | |
 |           | salt | The salt that identifies the new user|
 
 
 ### register.php
 Registers the user in the system.
 
-| I/O | Meaning ||
-| ------|---------||
+I/O | Meaning | |
+|------|---------|--------|
 | **input** |   |
-| salt       | The salt of the requested user   |
+| salt      | The salt of the requested user   |
 | login     | the new login|
-| password  | The encrypted password
+| password  | The encrypted password |
 | ofields   | Other user fielkds, like photo, address, etc.|
 | **output**|   ||
 | JSON      |   ||
 |           | salt | The salt that identifies the new user|
-|           | errcode   | * 400. Missing parameter
-|           |           | * 401. Login exists already
-|           |           | * 200. OK
+|           | errcode   | * 400. Missing parameter|
+|           |           | * 401. Login exists already|
+|           |           | * 200. OK|
 
 
 ### login.php
 The login script. Automatically register last login date, and returns an active token
 
 | I/O       | Meaning ||
-| ------    |---------||
+------|---------|------|
 | **input** | |
 | login     | the users's login||
 | phs       | The phase of the login: |
@@ -67,16 +67,16 @@ The login script. Automatically register last login date, and returns an active 
 | **output**|   ||
 | JSON      |   ||
 |           | active_token | The token that identifies the client to use between communications |
-|           | errorCode | 404 - bad Login; 
-|           |           | 401 - Wrong Password; 
-|           |           | 200 - OK) 
+|           | errorCode | 404 - bad Login; |
+|           |           | 401 - Wrong Password;| 
+|           |           | 200 - OK) |
 
 
 ###logout.php
 Performs a simple logout, and cleans the token.
 
 | I/O       | Meaning ||
-| ------    |---------||
+|-----------|---------|----------|
 | **input** |   |
 | token     | the token to be cleaned   |
 | **output**|   ||
